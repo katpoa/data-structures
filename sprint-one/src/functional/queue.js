@@ -13,10 +13,6 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     var top = storage['0'];
-    console.log('first item in queue', storage['0']);
-    console.log('fist item variable', top);
-    console.log('count', count);
-    console.log(storage);
     delete storage['0'];
     if (count > 0) {
       count --;
@@ -26,7 +22,6 @@ var Queue = function() {
       storage[newKey] = storage[key];
       delete storage[key];
     }
-    console.log('after shifting', storage);
     return top;
   };
 
