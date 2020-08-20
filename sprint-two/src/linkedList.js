@@ -48,6 +48,16 @@ var LinkedList = function() {
     return wasFound;
   };
 
+  list.size = function() {
+    var counter = 0;
+    var current = list.head;
+    while (current !== null) {
+      counter++;
+      current = current.next;
+    }
+    return counter;
+  };
+
   return list;
 };
 

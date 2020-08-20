@@ -50,6 +50,10 @@ describe('linkedList', function() {
     linkedList.removeHead();
     expect(linkedList.contains(4)).to.equal(false);
   });
-
   // add more tests here to test the functionality of linkedList
+  it('should return the size of the linked list', function() {
+    linkedList.addToTail(3);
+    linkedList.addToTail(4);
+    expect(linkedList.size()).to.equal(2);
+  });
 });
