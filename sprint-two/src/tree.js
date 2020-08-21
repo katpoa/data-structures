@@ -16,24 +16,19 @@ treeMethods.addChild = function(value) {
   console.log(this);
 };
 
-treeMethods.contains = function(target, wasFound = false) {
+treeMethods.contains = function(target) {
   if (this.value === target) {
     return true;
   }
   //iterate newTree.children
   for (var child = 0; child < this.children.length; child++) {
-    console.log('iterating through childen', this.children[child]);
-    if (this.children[child].value === target) {
-      wasFound = true;
-      return wasFound;
-    }
     var tree2 = this.children[child];
     //  else recursive call on child
-    if (tree2.children.length !== 0) {
-      tree2.contains(target, wasFound);
+    if (tree2.contains(target)) {
+      return true;
     }
   }
-  return wasFound;
+  return false;
 };
 
 treeMethods.size = function() {
@@ -42,22 +37,6 @@ treeMethods.size = function() {
   return count;
 };
 
-/*
-if (this.value === target) {
-  return true;
-}
-//iterate newTree.children
-for (var child = 0; child < this.children.length; child++) {
-  console.log('iterating through childen', this.children[child]);
-  if (this.children[child].value === target) {
-    return true;
-  }
-  var tree2 = this.children[child];
-  //  else recursive call on child
-  tree2.contains(target);
-}
-return false;
-}; */
 
 /*
  * Complexity: What is the time complexity of the above functions?
