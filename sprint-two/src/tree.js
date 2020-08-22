@@ -3,7 +3,7 @@ var Tree = function(value) {
   newTree.value = value;
   _.extend(newTree, treeMethods);
   newTree.children = [];
-
+  newTree.count = 0;
   return newTree;
 };
 
@@ -13,7 +13,6 @@ treeMethods.addChild = function(value) {
   var node = {'value': value, 'children': []};
   _.extend(node, treeMethods);
   this.children.push(node);
-  console.log(this);
 };
 
 treeMethods.contains = function(target) {
@@ -31,16 +30,23 @@ treeMethods.contains = function(target) {
   return false;
 };
 
-treeMethods.size = function() {
+/* treeMethods.size = function() {
   var count = 0;
-  // basically contains but counting values
-  return count;
-};
-
+  // if node is not null && current node has no children
+  if (this.value && this.children.length === 0) {
+    count++;
+    return count;
+  }
+  // loop through children
+  for (var child = 0; child < this.children.length; child++) {
+    //   recursively call size on children
+    count++;
+    children[child].size();
+  }
+}; */
 
 /*
  * Complexity: What is the time complexity of the above functions?
   addChild: constant O(1) - since we're only adding to the end
   contains: linear O(n)
-
  */
