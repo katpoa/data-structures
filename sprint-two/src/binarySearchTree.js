@@ -7,7 +7,6 @@ var BinarySearchTree = function(value) {
   return root;
 };
 
-
 var bstMethods = {};
 
 bstMethods.insert = function(value) {
@@ -52,7 +51,6 @@ bstMethods.contains = function(value) {
   return false;
 };
 
-
 bstMethods.depthFirstLog = function(func) {
   // apply func to this.value
   func(this.value);
@@ -65,6 +63,23 @@ bstMethods.depthFirstLog = function(func) {
     this.right.depthFirstLog(func);
   }
 };
+
+/*
+bstMethods.breadthFirstLog = function(func) {
+  // while tree is not empty
+  var queue = [this.value];
+  func(queue[0]);
+  queue.shift();
+  queue.push(this.left, this.right);
+  .breadthFirstLog(func, )
+
+  func(this.value);
+  for (var key in this) {
+    func(this.left);
+    func(this.right);
+  }
+  // implement using a queue, at each level remove parent node and add its children
+}; */
 
 /*
  * Complexity: What is the time complexity of the above functions?
