@@ -25,7 +25,6 @@ Graph.prototype.removeNode = function(node) {
   //iterate through graph
   for (let key in this.graph) {
     //    if edge list includes node, delete it
-    console.log(this.graph[key]);
     if (this.graph[key].includes(node)) {
       //      .splice(edgelist.indexOf(node), 1);
       let nodeIndex = this.graph[key].indexOf(node);
@@ -34,7 +33,6 @@ Graph.prototype.removeNode = function(node) {
   }
   //convert node to string
   node = JSON.stringify(node);
-  console.log(node);
   //delete this.graph at that node
   delete this.graph[node];
 };
@@ -78,6 +76,21 @@ Graph.prototype.forEachNode = function(cb) {
   }
 };
 
+Graph.prototype.size = function() {
+  var length = 0;
+  for (key in this.graph) {
+    length++;
+  }
+  return length;
+};
+
+Graph.prototype.nodeValues = function() {
+  let values = Object.keys(this.graph);
+  return values.map(function(item) {
+    return parseInt(item);
+  });
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
   addNode: constant O(1)
@@ -87,6 +100,8 @@ Graph.prototype.forEachNode = function(cb) {
   addEdge: linear O(n)
   removeEdge: linear O(n)
   forEachNode: linear O(n)
+  size: linear O(n)
+  nodeValues: linear O(n)
  */
 
 
