@@ -7,20 +7,25 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  var property = item.split(' ');
-  if (!(property[0] in this._storage)) {
-    this._storage[property[0]] = property[1];
+  if (!(item in this._storage)) {
+    this._storage[item] = item;
   }
 };
 
 setPrototype.contains = function(item) {
-  var property = item.split(' ');
-  return (property[0] in this._storage);
+  return (item in this._storage);
 };
 
 setPrototype.remove = function(item) {
-  var property = item.split(' ');
-  delete this._storage[property[0]];
+  delete this._storage[item];
+};
+
+setPrototype.size = function() {
+  let length = 0;
+  for (key in this._storage) {
+    length++;
+  }
+  return length;
 };
 
 /*
@@ -28,4 +33,5 @@ setPrototype.remove = function(item) {
   add: constant O(1) - worst case linear O(n)
   contains: constant O(1) - worst case linear O(n)
   remove: constant O(1)
+  size: linear O(n)
  */
