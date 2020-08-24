@@ -37,6 +37,16 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  ////
+
+  it('should return minimum node value of tree', function() {
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    expect(binarySearchTree.min()).to.eql(2);
+  });
+
   /*
   it('should execute a callback on every value in a tree using "breadthFirstLog"', function() {
     var array = [];
