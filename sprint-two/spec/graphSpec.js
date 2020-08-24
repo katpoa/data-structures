@@ -68,4 +68,22 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  //////
+  it('should return the size of the graph (number of nodes)', function() {
+    graph.addNode(5);
+    graph.addNode(2);
+    graph.addNode(1);
+    graph.addNode(3);
+    expect(graph.size()).to.equal(4);
+  });
+
+  it('should return a sorted array of the graph\'s node values', function() {
+    graph.addNode(5);
+    graph.addNode(2);
+    graph.addNode(1);
+    graph.addNode(3);
+    expect(graph.nodeValues()).to.eql([1, 2, 3, 5]);
+  });
+
 });
