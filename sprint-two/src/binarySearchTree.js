@@ -15,7 +15,6 @@ bstMethods.insert = function(value) {
   node.left = null;
   node.right = null;
   _.extend(node, bstMethods);
-  console.log(this.root);
   if (value > this.value) {
     //insert on the right
     if (this.right === null) {
@@ -64,6 +63,17 @@ bstMethods.depthFirstLog = function(func) {
   }
 };
 
+bstMethods.min = function(node) {
+  if (this.value === undefined) {
+    return undefined;
+  }
+  let current = this;
+  while (current.left !== null) {
+    current = current.left;
+  }
+  return current.value;
+};
+
 /*
 bstMethods.breadthFirstLog = function(func) {
   // while tree is not empty
@@ -86,4 +96,5 @@ bstMethods.breadthFirstLog = function(func) {
   insert: logarithmic O(log n), worst case: O(n)
   contains: logarithmic O(log n), worst case: O(n)
   depthFirstLog: linear O(n)
+  min: logarithmic O(logn)
  */
